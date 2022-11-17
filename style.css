@@ -1,0 +1,42 @@
+/* .highlight {
+  border-radius: 0.8rem;
+  color: white;
+  padding: 2rem;
+  margin-bottom: 1.7rem;
+}
+.bold {
+  padding-left: 1.3rem;
+    
+  font-size: 2.5em;
+  font-weight: 700;
+}
+.grey {
+  background-color: Grey;
+}
+.blue {
+  background-color: lightblue;
+}
+
+ */
+
+
+
+
+.highlight {
+  border-radius: 0.8rem;
+  color: #000000;
+  padding: 2rem;
+  margin-bottom: 1.7rem;
+}
+.bold {
+  padding-left: 0.8rem;
+    
+  font-size: 2.5em;
+  font-weight: 700;
+}
+.grey {
+  background-color: White;
+}
+.blue {
+  background-color: White;
+}
