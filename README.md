@@ -6,13 +6,13 @@
 # Lung Cancer App
 
 - **app accepts following Parameters and predictes whether a person having lung cancer or not and also predicts probability of cancer.**
-1.ANXIETY 
-2.CHRONIC DISEASE
-3.FATIGUE
-4.ALLERGY
-5.WHEEZING
-6.COUGHING
-7.SWALLOWING DIFFICULTY
+1. ANXIETY 
+2. CHRONIC DISEASE
+3. FATIGUE
+4. ALLERGY
+5. WHEEZING
+6. COUGHING
+7. SWALLOWING DIFFICULTY
 
 # Demo
 
