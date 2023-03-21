@@ -303,9 +303,10 @@ gb.configure_pagination(paginationAutoPageSize=False) #Add pagination
 gb.configure_selection('multiple',  groupSelectsChildren="Group checkbox select children") #Enable multi-row selection
 gridOptions = gb.build()
 
-
-
-
+gb.configure_default_column(
+     auto_size=True # Enable automatic column sizing,
+     cellStyle={'fontSize': '13px'} # Set the font size to 14 pixels
+)
 
 grid_response = AgGrid(
     df2,
@@ -316,7 +317,7 @@ grid_response = AgGrid(
     #theme='black', #Add theme color to the table
     theme='material',  #'streamlit', 'alpine', 'balham', 'material'
     enable_enterprise_modules=True,
-    height=150, 
+    height=170, 
     width='90%',
     reload_data=True
 )
@@ -340,13 +341,13 @@ prediction_proba = model.predict_proba(df2)
 st.subheader('Having Lung Cancer ???')
 st.write('Yes' if prediction_proba[0][1] > 0.5 else 'No')
 
-# st.subheader('Prediction Probability')
-# #st.write(prediction_proba)
-# d77 = pd.DataFrame(prediction_proba, columns=['No', 'Yes'])
-# d77 = d77.applymap(lambda x: '{:.2%}'.format(x))
-# # Format DataFrame for Streamlit app
-# for col, values in d77.iteritems():
-#    st.write(f'{col}  -  {values[0]}')
+st.subheader('Prediction Probability')
+#st.write(prediction_proba)
+d77 = pd.DataFrame(prediction_proba, columns=['No', 'Yes'])
+d77 = d77.applymap(lambda x: '{:.2%}'.format(x))
+# Format DataFrame for Streamlit app
+for col, values in d77.iteritems():
+   st.write(f'{col}  -  {values[0]}')
 
 
 
