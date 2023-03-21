@@ -305,7 +305,7 @@ gridOptions = gb.build()
 
 gb.configure_default_column(
      auto_size=True # Enable automatic column sizing,
-     ,cellStyle={'fontSize': '13px'} # Set the font size to 14 pixels
+     ,cellStyle={'fontSize': '14px'} # Set the font size to 14 pixels
 )
 
 grid_response = AgGrid(
@@ -317,7 +317,7 @@ grid_response = AgGrid(
     #theme='black', #Add theme color to the table
     theme='material',  #'streamlit', 'alpine', 'balham', 'material'
     enable_enterprise_modules=True,
-    height=170, 
+    height=180, 
     width='90%',
     reload_data=True
 )
