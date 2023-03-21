@@ -305,7 +305,7 @@ gridOptions = gb.build()
 
 gb.configure_default_column(
      auto_size=True # Enable automatic column sizing,
-     cellStyle={'fontSize': '13px'} # Set the font size to 14 pixels
+     ,cellStyle={'fontSize': '13px'} # Set the font size to 14 pixels
 )
 
 grid_response = AgGrid(
