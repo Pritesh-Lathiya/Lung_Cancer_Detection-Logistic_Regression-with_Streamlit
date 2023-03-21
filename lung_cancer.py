@@ -94,76 +94,76 @@ df.drop(lower[0], inplace = True)
 import seaborn as sns
 sns.boxplot(df['AGE'])
 
-# Logistic regression"""
+## Logistic regression"""
 
-X=df.drop("LUNG_CANCER",axis=1)
-Y=df["LUNG_CANCER"]
+# X=df.drop("LUNG_CANCER",axis=1)
+# Y=df["LUNG_CANCER"]
 
-from sklearn.model_selection import train_test_split
-x_train, x_test, y_train, y_test = train_test_split(X,Y, test_size=0.30, random_state=5)
+# from sklearn.model_selection import train_test_split
+# x_train, x_test, y_train, y_test = train_test_split(X,Y, test_size=0.30, random_state=5)
 
-#Logistic regression and fit the model
-model = LogisticRegression(max_iter=500,C=11)
-model.fit(X,Y)
+# #Logistic regression and fit the model
+# model = LogisticRegression(max_iter=500,C=11)
+# model.fit(X,Y)
 
-# classifier.write_to_pickle('path of file.pkl')
-# classifier.save('Model.hd5')
+# ## classifier.write_to_pickle('path of file.pkl')
+# ## classifier.save('Model.hd5')
 
-y_pred = model.predict(x_test)
+# y_pred = model.predict(x_test)
 
-prediction=[round(value) for value in y_pred]
-# prediction
+# prediction=[round(value) for value in y_pred]
+## prediction
 
-# evaluate predictions
-accuracy = accuracy_score(y_test, prediction)
-print("Accuracy: %.2f%%" % (accuracy * 100.0))
+## evaluate predictions
+# accuracy = accuracy_score(y_test, prediction)
+# print("Accuracy: %.2f%%" % (accuracy * 100.0))
 
-y_pred_df= pd.DataFrame({'actual': Y,
-                         'predicted_prob': model.predict(X)})
+# y_pred_df= pd.DataFrame({'actual': Y,
+#                          'predicted_prob': model.predict(X)})
 
-Classification_report = classification_report(y_test,y_pred)
-clsreport = print(Classification_report)
+# Classification_report = classification_report(y_test,y_pred)
+# clsreport = print(Classification_report)
 
-# ROC Curve
+## ROC Curve
 
-fpr, tpr, thresholds = roc_curve(Y, model.predict_proba (X)[:,1])
+# fpr, tpr, thresholds = roc_curve(Y, model.predict_proba (X)[:,1])
 
-auc = roc_auc_score(y_test, y_pred)
-
-
-plt.plot(fpr, tpr, color='red', label='logit model ( area  = %0.2f)'%auc)
-plt.plot([0,1], [0,1], 'k--')
-plt.xlabel('False Positive Rate or [1 - True Negative Rate]')
-plt.ylabel('True Positive Rate')
+# auc = roc_auc_score(y_test, y_pred)
 
 
-cm = confusion_matrix(y_test, y_pred)
-sns.heatmap(cm, fmt='g', annot=True, cmap="Blues")
-accuracy=accuracy_score(y_test, y_pred)
-
-plt.title('Logistic Regression', size = 20)
-
-# Adding figure labels
-plt.ylabel('Actual Values')
-plt.xlabel('Predicted Values \n \n Accuracy: {}'.format(round(accuracy, 4)))
-plt.show()
-
-# K-folds-cross-validation
+# plt.plot(fpr, tpr, color='red', label='logit model ( area  = %0.2f)'%auc)
+# plt.plot([0,1], [0,1], 'k--')
+# plt.xlabel('False Positive Rate or [1 - True Negative Rate]')
+# plt.ylabel('True Positive Rate')
 
 
+# cm = confusion_matrix(y_test, y_pred)
+# sns.heatmap(cm, fmt='g', annot=True, cmap="Blues")
+# accuracy=accuracy_score(y_test, y_pred)
+
+# plt.title('Logistic Regression', size = 20)
+
+## Adding figure labels
+# plt.ylabel('Actual Values')
+# plt.xlabel('Predicted Values \n \n Accuracy: {}'.format(round(accuracy, 4)))
+# plt.show()
+
+## K-folds-cross-validation
 
 
-scores = cross_val_score(model,X,Y, cv=5)
-mean_score=scores.mean()*100
 
 
-# Recursive Feature Elimination"""
+# scores = cross_val_score(model,X,Y, cv=5)
+# mean_score=scores.mean()*100
 
-from sklearn.feature_selection import RFE
-from sklearn.linear_model import LogisticRegression
 
-rfe = RFE(model)
-fit = rfe.fit(X, Y)
+## Recursive Feature Elimination"""
+
+# from sklearn.feature_selection import RFE
+# from sklearn.linear_model import LogisticRegression
+
+# rfe = RFE(model)
+# fit = rfe.fit(X, Y)
 
 #Num Features: 
 #fit.n_features_
@@ -173,74 +173,74 @@ fit = rfe.fit(X, Y)
 # Feature Ranking:
 #fit.ranking_
 
-#Selected Features:
-a=list(fit.support_)
-b=df.columns.to_list()
-for x, y in zip(a, b):
-    print(x, y, sep='\t\t')
+# #Selected Features:
+# a=list(fit.support_)
+# b=df.columns.to_list()
+# for x, y in zip(a, b):
+#     print(x, y, sep='\t\t')
 
-df2=df[['ANXIETY', 'CHRONIC_DISEASE', 'FATIGUE_', 'ALLERGY_', 'WHEEZING','COUGHING','SWALLOWING_DIFFICULTY']]
+# df2=df[['ANXIETY', 'CHRONIC_DISEASE', 'FATIGUE_', 'ALLERGY_', 'WHEEZING','COUGHING','SWALLOWING_DIFFICULTY']]
 
-X1=df2
-Y=df["LUNG_CANCER"]
+# X1=df2
+# Y=df["LUNG_CANCER"]
 
-from sklearn.model_selection import train_test_split
-x_train, x_test, y_train, y_test = train_test_split(X1,Y, test_size=0.30, random_state=5)
+# from sklearn.model_selection import train_test_split
+# x_train, x_test, y_train, y_test = train_test_split(X1,Y, test_size=0.30, random_state=5)
 
 
-#Logistic regression and fit the model
-model1 = LogisticRegression(max_iter=500,C=11)
-model1.fit(X1,Y)
+# #Logistic regression and fit the model
+# model1 = LogisticRegression(max_iter=500,C=11)
+# model1.fit(X1,Y)
 
 # classifier.write_to_pickle('path of file.pkl')
 # classifier.save('Model.hd5')
 
-# save the model to disk
-filename = 'finalized_model.sav'
-pickle.dump(model1, open(filename, 'wb'))
+# # save the model to disk
+# filename = 'finalized_model.sav'
+# pickle.dump(model1, open(filename, 'wb'))
 
-#Predict for X dataset
-pickle.load(open(filename, 'rb'))
-# classifier.read_pickle_file('/content/finalized_model.sav')
-y_pred = model1.predict(x_test)
+# #Predict for X dataset
+# pickle.load(open(filename, 'rb'))
+# # classifier.read_pickle_file('/content/finalized_model.sav')
+# y_pred = model1.predict(x_test)
 
-prediction=[round(value) for value in y_pred]
-# prediction
+# prediction=[round(value) for value in y_pred]
+# # prediction
 
-# evaluate predictions
-accuracy = accuracy_score(y_test, prediction)
-#print("Accuracy: %.2f%%" % (accuracy * 100.0))
+# # evaluate predictions
+# accuracy = accuracy_score(y_test, prediction)
+# #print("Accuracy: %.2f%%" % (accuracy * 100.0))
 
-y_pred_df= pd.DataFrame({'actual': Y,
-                         'predicted_prob': model.predict(X)})
+# y_pred_df= pd.DataFrame({'actual': Y,
+#                          'predicted_prob': model.predict(X)})
 
-Classification_report = classification_report(y_test,y_pred)
-clsreport = print(Classification_report)
+# Classification_report = classification_report(y_test,y_pred)
+# clsreport = print(Classification_report)
 
-# ROC Curve
+# # ROC Curve
 
-fpr, tpr, thresholds = roc_curve(Y, model.predict_proba (X)[:,1])
+# fpr, tpr, thresholds = roc_curve(Y, model.predict_proba (X)[:,1])
 
-auc = roc_auc_score(y_test, y_pred)
+# auc = roc_auc_score(y_test, y_pred)
 
 
-plt.plot(fpr, tpr, color='red', label='logit model ( area  = %0.2f)'%auc)
-plt.plot([0,1], [0,1], 'k--')
-plt.xlabel('False Positive Rate or [1 - True Negative Rate]')
-plt.ylabel('True Positive Rate')
+# plt.plot(fpr, tpr, color='red', label='logit model ( area  = %0.2f)'%auc)
+# plt.plot([0,1], [0,1], 'k--')
+# plt.xlabel('False Positive Rate or [1 - True Negative Rate]')
+# plt.ylabel('True Positive Rate')
 
 #auc
 
-cm = confusion_matrix(y_test, y_pred)
-sns.heatmap(cm, fmt='g', annot=True, cmap="Blues")
-accuracy=accuracy_score(y_test, y_pred)
+# cm = confusion_matrix(y_test, y_pred)
+# sns.heatmap(cm, fmt='g', annot=True, cmap="Blues")
+# accuracy=accuracy_score(y_test, y_pred)
 
-plt.title('Logistic Regression', size = 20)
+# plt.title('Logistic Regression', size = 20)
 
-# Adding figure labels
-plt.ylabel('Actual Values')
-plt.xlabel('Predicted Values \n \n Accuracy: {}'.format(round(accuracy, 4)))
-plt.show()
+# # Adding figure labels
+# plt.ylabel('Actual Values')
+# plt.xlabel('Predicted Values \n \n Accuracy: {}'.format(round(accuracy, 4)))
+# plt.show()
 
 
 
@@ -331,10 +331,11 @@ grid_response = AgGrid(
 
 ##############st.subheader('User Input Parameters')
 ##############st.write(df2)
-
+import pickle
+model = pickle.load(open('lr.pkl','rb'))
 df2=df2.replace(["Yes","No"],[1,0])
-prediction = model1.predict(df2)
-prediction_proba = model1.predict_proba(df2)
+prediction = model.predict(df2)
+prediction_proba = model.predict_proba(df2)
 
 st.subheader('Having Lung Cancer ???')
 st.write('Yes' if prediction_proba[0][1] > 0.5 else 'No')
