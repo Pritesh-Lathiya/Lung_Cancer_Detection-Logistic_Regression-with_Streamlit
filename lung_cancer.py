@@ -341,7 +341,12 @@ st.subheader('Having Lung Cancer ???')
 st.write('Yes' if prediction_proba[0][1] > 0.5 else 'No')
 
 st.subheader('Prediction Probability')
-st.write(prediction_proba)
+#st.write(prediction_proba)
+d77 = pd.DataFrame(prediction_proba, columns=['No', 'Yes'])
+d77 = d77.applymap(lambda x: '{:.2%}'.format(x))
+# Format DataFrame for Streamlit app
+for col, values in d77.iteritems():
+   st.write(f'{col}  -  {values[0]}')
 
 
 
