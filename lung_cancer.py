@@ -31,7 +31,7 @@ import streamlit as st
 
 #  2 - YES , 1 - NO
 
-df = pd.read_csv('C:\\Users\\win7\\OneDrive\\Documents\\lung cancer final.csv')
+df = pd.read_csv('lung cancer.csv')
 
 ## Dropping unnecessary column
 df=df.drop(['NO'],axis=1)
