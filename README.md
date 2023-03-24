@@ -16,7 +16,7 @@
 
 # Demo
 
-#![Screenshot (16)](https://user-images.githubusercontent.com/111117591/202399614-60653be9-e522-4709-a22f-b1aeca2f0099.png)
+
 ![lr](https://user-images.githubusercontent.com/111117591/227438003-2a90bc3d-9b41-471b-8017-4cee52dad541.jpeg)
 
 # Run
