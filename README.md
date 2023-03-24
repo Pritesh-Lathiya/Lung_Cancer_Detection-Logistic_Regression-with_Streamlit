@@ -19,7 +19,5 @@
 
 ![lr](https://user-images.githubusercontent.com/111117591/227438003-2a90bc3d-9b41-471b-8017-4cee52dad541.jpeg)
 
-# Run
-Start the dasboard:
-
-- `streamlit run lung_cancer.py`
+# APP Link
+https://pritesh-lathiya-lung-cancer-detection-logist-lung-cancer-kar5cr.streamlit.app/
